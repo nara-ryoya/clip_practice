@@ -7,18 +7,8 @@ services:
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
     volumes:
       - source: .
         target: /root/workdir
         type: bind
-      - source: ignore
-        target: /root/workdir/.venv
-        type: volume
     tty: true
