@@ -1,0 +1,14 @@
+volumes:
+  ignore:
+version: '3.8'
+services:
+  clip:
+    build: .
+    volumes:
+      - source: .
+        target: /root/workdir
+        type: bind
+      - source: ignore
+        target: /root/workdir/.venv
+        type: volume
+    tty: true
